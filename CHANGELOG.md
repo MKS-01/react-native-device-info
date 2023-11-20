@@ -1,3 +1,80 @@
+# [10.11.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.10.0...v10.11.0) (2023-09-19)
+
+
+### Features
+
+* **android:** add new isLowRamDevice constant ([#1571](https://github.com/react-native-device-info/react-native-device-info/issues/1571)) ([f608fd5](https://github.com/react-native-device-info/react-native-device-info/commit/f608fd5afe9cc130098f99bb7134251d01410a97))
+
+# [10.10.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.9.0...v10.10.0) (2023-09-19)
+
+
+### Features
+
+* Add device names for iPhone 15 family, add check for dynamic island ([#1569](https://github.com/react-native-device-info/react-native-device-info/issues/1569)) ([8e512ec](https://github.com/react-native-device-info/react-native-device-info/commit/8e512ecdffc855f49fc51fecc6e433eda9c6ca6c))
+
+# [10.9.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.8.0...v10.9.0) (2023-08-28)
+
+
+### Features
+
+* **windows:** Implemented getHostNames() for windows ([#1565](https://github.com/react-native-device-info/react-native-device-info/issues/1565)) ([eab4992](https://github.com/react-native-device-info/react-native-device-info/commit/eab49922deaeb6e9e73cfaab6ad1e674de1d21cb))
+
+# [10.8.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.7.0...v10.8.0) (2023-07-12)
+
+
+### Features
+
+* **windows:** Implemented gethost() for windows ([#1552](https://github.com/react-native-device-info/react-native-device-info/issues/1552)) ([aa4f6e0](https://github.com/react-native-device-info/react-native-device-info/commit/aa4f6e07c587601872445d53e62a976a7b773418))
+
+# [10.7.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.6.1...v10.7.0) (2023-06-30)
+
+
+### Features
+
+* **android:** add support for React Native 0.73 ([#1546](https://github.com/react-native-device-info/react-native-device-info/issues/1546)) ([38f9665](https://github.com/react-native-device-info/react-native-device-info/commit/38f96650d61198c88d7691c9998098c4969bca49))
+
+## [10.6.1](https://github.com/react-native-device-info/react-native-device-info/compare/v10.6.0...v10.6.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* **windows:** bump WindowsTargetPlatformMinVersion ([#1537](https://github.com/react-native-device-info/react-native-device-info/issues/1537)) ([7f0f1c2](https://github.com/react-native-device-info/react-native-device-info/commit/7f0f1c28d04bb3c1eb460ee014dbe76a45b354f1))
+
+# [10.6.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.5.1...v10.6.0) (2023-04-06)
+
+
+### Features
+
+* **windows:** implementation for useBatteryLevel & useBatteryLevelIsLow ([18e3a54](https://github.com/react-native-device-info/react-native-device-info/commit/18e3a54d68dbb7d5865bb4e25b1f24fd6b75474a))
+
+## [10.5.1](https://github.com/react-native-device-info/react-native-device-info/compare/v10.5.0...v10.5.1) (2023-03-29)
+
+
+### Bug Fixes
+
+* add missing mock ([#1511](https://github.com/react-native-device-info/react-native-device-info/issues/1511)) ([5d7a8d2](https://github.com/react-native-device-info/react-native-device-info/commit/5d7a8d2f4fde8ee8cba6995101c37f44de1371b1))
+
+# [10.5.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.4.0...v10.5.0) (2023-03-28)
+
+
+### Features
+
+* **windows:** implementation of EnergySaverStatusChanged to emitt event RNDeviceInfo_powerStateDidChange ([c974b31](https://github.com/react-native-device-info/react-native-device-info/commit/c974b3172273b720e800eaff1e9a3e539143397f))
+
+# [10.4.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.3.1...v10.4.0) (2023-02-15)
+
+
+### Features
+
+* **ios:** add isDisplayZoomed constant ([#1495](https://github.com/react-native-device-info/react-native-device-info/issues/1495)) ([0f7ac92](https://github.com/react-native-device-info/react-native-device-info/commit/0f7ac9283d0463111d8ba1a6b1ab98dac042ba64))
+
+## [10.3.1](https://github.com/react-native-device-info/react-native-device-info/compare/v10.3.0...v10.3.1) (2023-02-15)
+
+
+### Bug Fixes
+
+* **ios:** getUserAgentSync: separate memoKeys for sync / non-sync usage ([#1506](https://github.com/react-native-device-info/react-native-device-info/issues/1506)) ([4bda3ba](https://github.com/react-native-device-info/react-native-device-info/commit/4bda3ba139333160a35f4935e06ba1899a91f59d))
+
 # [10.3.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.2.1...v10.3.0) (2022-10-21)
 
 

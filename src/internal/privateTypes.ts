@@ -17,6 +17,8 @@ interface NativeConstants {
   deviceId: string;
   deviceType: DeviceType;
   isTablet: boolean;
+  isLowRamDevice: boolean;
+  isDisplayZoomed: boolean;
   model: string;
   systemName: string;
   systemVersion: string;
@@ -75,6 +77,8 @@ interface ExposedNativeMethods {
   getHardwareSync: () => string;
   getHost: () => Promise<string>;
   getHostSync: () => string;
+  getHostNames: () => Promise<string[]>;
+  getHostNamesSync: () => string[];
   getIncremental: () => Promise<string>;
   getIncrementalSync: () => string;
   getInstallerPackageName: () => Promise<string>;
@@ -179,6 +183,8 @@ export interface DeviceInfoModule extends ExposedNativeMethods {
   isLandscape: () => Promise<boolean>;
   isLandscapeSync: () => boolean;
   isTablet: () => boolean;
+  isLowRamDevice: () => boolean;
+  isDisplayZoomed: () => boolean;
   supported32BitAbis: () => Promise<string[]>;
   supported32BitAbisSync: () => string[];
   supported64BitAbis: () => Promise<string[]>;

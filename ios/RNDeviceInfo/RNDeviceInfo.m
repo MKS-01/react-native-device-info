@@ -67,6 +67,7 @@ RCT_EXPORT_MODULE();
          @"brand": @"Apple",
          @"model": [self getModel],
          @"deviceType": [self getDeviceTypeName],
+         @"isDisplayZoomed": @([self isDisplayZoomed]),
      };
 }
 
@@ -159,6 +160,10 @@ RCT_EXPORT_METHOD(getDeviceName:(RCTPromiseResolveBlock)resolve rejecter:(RCTPro
     resolve(self.getDeviceName);
 }
 
+- (BOOL) isDisplayZoomed {
+    return [UIScreen mainScreen].scale != [UIScreen mainScreen].nativeScale;
+}
+
 - (NSString *) getAppName {
     NSString *displayName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     NSString *bundleName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
@@ -249,6 +254,10 @@ RCT_EXPORT_METHOD(getDeviceName:(RCTPromiseResolveBlock)resolve rejecter:(RCTPro
         @"iPhone14,8": @"iPhone 14 Plus",
         @"iPhone15,2": @"iPhone 14 Pro",
         @"iPhone15,3": @"iPhone 14 Pro Max",
+        @"iPhone15,4": @"iPhone 15",
+        @"iPhone15,5": @"iPhone 15 Plus",
+        @"iPhone16,1": @"iPhone 15 Pro",
+        @"iPhone16,2": @"iPhone 15 Pro Max",
         @"iPad4,1": @"iPad Air", // 5th Generation iPad (iPad Air) - Wifi
         @"iPad4,2": @"iPad Air", // 5th Generation iPad (iPad Air) - Cellular
         @"iPad4,3": @"iPad Air", // 5th Generation iPad (iPad Air)

@@ -117,6 +117,8 @@ export default class App extends Component {
     deviceJSON.readableVersion = DeviceInfo.getReadableVersion();
     deviceJSON.buildNumber = DeviceInfo.getBuildNumber();
     deviceJSON.isTablet = DeviceInfo.isTablet();
+    deviceJSON.isLowRamDevice = DeviceInfo.isLowRamDevice();
+    deviceJSON.isDisplayZoomed = DeviceInfo.isDisplayZoomed();
     deviceJSON.appName = DeviceInfo.getApplicationName();
     deviceJSON.brand = DeviceInfo.getBrand();
     deviceJSON.model = DeviceInfo.getModel();
@@ -176,6 +178,7 @@ export default class App extends Component {
     deviceJSON.fingerprint = DeviceInfo.getFingerprintSync();
     deviceJSON.hardware = DeviceInfo.getHardwareSync();
     deviceJSON.host = DeviceInfo.getHostSync();
+    deviceJSON.hostNames = DeviceInfo.getHostNamesSync();
     deviceJSON.product = DeviceInfo.getProductSync();
     deviceJSON.tags = DeviceInfo.getTagsSync();
     deviceJSON.type = DeviceInfo.getTypeSync();
@@ -249,6 +252,7 @@ export default class App extends Component {
       deviceJSON.fingerprint = await DeviceInfo.getFingerprint();
       deviceJSON.hardware = await DeviceInfo.getHardware();
       deviceJSON.host = await DeviceInfo.getHost();
+      deviceJSON.hostNames = await DeviceInfo.getHostNames();
       deviceJSON.product = await DeviceInfo.getProduct();
       deviceJSON.tags = await DeviceInfo.getTags();
       deviceJSON.type = await DeviceInfo.getType();

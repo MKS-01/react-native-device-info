@@ -6,9 +6,13 @@
 #include <sstream>
 #include <chrono>
 #include <future>
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Networking.Connectivity.h>
 
 using namespace winrt::Microsoft::ReactNative;
 using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Networking;
+using namespace winrt::Windows::Networking::Connectivity;
 
 namespace winrt::RNDeviceInfoCPP
 {
@@ -22,6 +26,10 @@ namespace winrt::RNDeviceInfoCPP
     void Initialize(ReactContext const &reactContext) noexcept
     {
       m_reactContext = reactContext;
+      Windows::System::Power::PowerManager::EnergySaverStatusChanged([&](
+          const auto&, winrt::Windows::Foundation::IInspectable obj) { OnEnergySaverStatusChanged(); });
+      Windows::Devices::Power::Battery::AggregateBattery().ReportUpdated([&](
+          const auto&, winrt::Windows::Foundation::IInspectable obj) { OnBatteryReportUpdated(); });
     }
 
     REACT_CONSTANT_PROVIDER(constantsViaConstantsProvider);
@@ -280,7 +288,12 @@ namespace winrt::RNDeviceInfoCPP
         }
         else
         {
-          return value / max;
+          auto result = value / max;
+          if (result <= 0.2)
+          {
+              m_reactContext.EmitJSEvent(L"RCTDeviceEventEmitter", L"RNDeviceInfo_batteryLevelIsLow", result);
+          }
+          return result;
         }
       }
     }
@@ -824,6 +837,44 @@ namespace winrt::RNDeviceInfoCPP
           promise.Resolve(op.GetResults());
         });
     }
+	
+    REACT_SYNC_METHOD(getHostSync);
+    std::string getHostSync() noexcept
+    {
+        try
+        {
+            return winrt::to_string(NetworkInformation::GetHostNames().GetAt(0).DisplayName());
+        }
+        catch (...)
+        {
+            return "unknown";
+        }
+    }
+
+    REACT_METHOD(getHost);
+    void getHost(ReactPromise<std::string> promise) noexcept
+    {
+        promise.Resolve(getHostSync());
+    }
+
+    REACT_SYNC_METHOD(getHostNamesSync);
+    JSValueArray getHostNamesSync() noexcept
+    {
+         JSValueArray result = JSValueArray{};
+        winrt::Windows::Foundation::Collections::IVectorView<HostName> hostNames = NetworkInformation::GetHostNames();
+        for (HostName hostName : hostNames)
+        {
+            result.push_back(winrt::to_string(hostName.DisplayName()));
+        }
+
+        return result;
+    }
+    
+    REACT_METHOD(getHostNames)
+    void getHostNames(ReactPromise<JSValueArray> promise) noexcept
+    {
+        promise.Resolve(getHostNamesSync());
+    }
 
     REACT_METHOD(addListener);
     void addListener(std::string) noexcept
@@ -835,6 +886,15 @@ namespace winrt::RNDeviceInfoCPP
     void removeListeners(int64_t) noexcept
     {
         // Keep: Required for RN built in Event Emitter Calls.
+    }
+
+    void OnEnergySaverStatusChanged()
+    {
+        m_reactContext.EmitJSEvent(L"RCTDeviceEventEmitter", L"RNDeviceInfo_powerStateDidChange", getPowerStateSync());
+    }
+    void OnBatteryReportUpdated()
+    {
+        m_reactContext.EmitJSEvent(L"RCTDeviceEventEmitter", L"RNDeviceInfo_batteryLevelDidChange", getBatteryLevelSync());
     }
   };
 
