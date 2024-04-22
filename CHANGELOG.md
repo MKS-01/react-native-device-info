@@ -1,3 +1,38 @@
+## [10.13.2](https://github.com/react-native-device-info/react-native-device-info/compare/v10.13.1...v10.13.2) (2024-04-21)
+
+
+### Bug Fixes
+
+* **ios:** add Apple privacy manifest ([#1624](https://github.com/react-native-device-info/react-native-device-info/issues/1624)) ([23f95db](https://github.com/react-native-device-info/react-native-device-info/commit/23f95dbe55f38f11fc2cba8efe0eb3e11676d07b)), closes [#1622](https://github.com/react-native-device-info/react-native-device-info/issues/1622)
+
+## [10.13.1](https://github.com/react-native-device-info/react-native-device-info/compare/v10.13.0...v10.13.1) (2024-02-26)
+
+
+### Bug Fixes
+
+* **ios:** fix missing visionOS symbol compile error in xcode < 15 ([#1615](https://github.com/react-native-device-info/react-native-device-info/issues/1615)) ([fd30902](https://github.com/react-native-device-info/react-native-device-info/commit/fd309022551121a938e8ee090fdb9d7e3ba07e60))
+
+# [10.13.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.12.1...v10.13.0) (2024-02-23)
+
+
+### Features
+
+* add visionOS platform support ([#1614](https://github.com/react-native-device-info/react-native-device-info/issues/1614)) ([56e42d8](https://github.com/react-native-device-info/react-native-device-info/commit/56e42d898bf31b6d6cfc1a58e8dc26936f3ded82))
+
+## [10.12.1](https://github.com/react-native-device-info/react-native-device-info/compare/v10.12.0...v10.12.1) (2024-02-23)
+
+
+### Bug Fixes
+
+* wrap return value of useOnEvent in useMemo ([2cdc43d](https://github.com/react-native-device-info/react-native-device-info/commit/2cdc43d93586e93bb00bf0b2b00ec8b9ee0b8c79))
+
+# [10.12.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.11.0...v10.12.0) (2023-11-28)
+
+
+### Features
+
+* **android:** implemented getSupportedMediaTypeList method ([#1590](https://github.com/react-native-device-info/react-native-device-info/issues/1590)) ([89a3c4c](https://github.com/react-native-device-info/react-native-device-info/commit/89a3c4c8860f58b2963a3a4274cdb492dcd50b7c))
+
 # [10.11.0](https://github.com/react-native-device-info/react-native-device-info/compare/v10.10.0...v10.11.0) (2023-09-19)
 
 
